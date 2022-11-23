@@ -1,0 +1,29 @@
+insert into bankaccount 
+values('SBI_Chamrajpet',2000);
+
+insert into bankaccount 
+values('SBI_ResidencyRoad',5000);
+
+insert into bankaccount 
+values('SBI_ShivajiRoad',6000);
+
+insert into bankaccount 
+values('SBI_ParlimentRoad',9000);
+
+insert into bankaccount 
+values('SBI_Jantarmantar',8000);
+
+insert into bankaccount 
+values('SBI_ShivajiRoad',4000);
+
+insert into bankaccount 
+values('SBI_ResidencyRoad',4000);
+
+insert into bankaccount 
+values('SBI_ParlimentRoad',3000);
+
+insert into bankaccount 
+values('SBI_ResidencyRoad',5000);
+
+insert into bankaccount 
+values('SBI_Jantarmantar',2000);
