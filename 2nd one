@@ -23,6 +23,6 @@ values(11,'SBI_Jantarmantar',2000);
 SELECT loan_number, branch_name, CONCAT(amount/100000,' lakhs') as 'assets in lakhs' FROM loan;
 
 select distinct d.customer_name from depositer d,bankaccount b
-where d.accno = b.accno and b.branch_name = 'SBI_ResidencyRoad'
-HAVING COUNT(d.customer_name) > 1;
-
+where d.accno = b.accno 
+group by b.branch_name
+HAVING COUNT(d.customer_name) > 2;
