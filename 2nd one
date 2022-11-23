@@ -26,3 +26,16 @@ select distinct d.customer_name from depositer d,bankaccount b
 where d.accno = b.accno 
 group by b.branch_name
 HAVING COUNT(d.customer_name) > 2;
+
+create view loansum as
+select branch_name,sum(amount)
+from loan
+group by branch_name;
+SELECT * FROM loansum;
+
+update bankaccount b,bankcustomer c,depositer d
+set b.balance = b.balance+1000
+where b.accno = d.accno and d.customer_name =  c.customer_name
+and c.customer_city = 'bangalore';
+
+select * from bankaccount;
