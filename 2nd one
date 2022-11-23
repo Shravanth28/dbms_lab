@@ -18,3 +18,6 @@ insert into bankaccount
 values(10,'SBI_ResidencyRoad',5000);
 insert into bankaccount 
 values(11,'SBI_Jantarmantar',2000);
+
+
+SELECT loan_number, branch_name, CONCAT(amount/100000,' lakhs') as 'assets in lakhs' FROM loan;
