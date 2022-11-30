@@ -1,0 +1,17 @@
+select distinct customer_name from bankcustomer 
+where customer_city = "Delhi";
+select * from bankcustomer;
+
+select distinct c.customer_name from bankcustomer c ,loan l, bankaccount b
+where l.loan_number != b.accno;
+
+select distinct c.customer_name from bankcustomer c ,loan l, bankaccount b
+where l.loan_number = b.accno and b.branch_name = "Bangalore";
+
+select branch_name from branch 
+where assets > (select max(assets) from branch where branch_name = "Bangalore");
+
+delete from bankaccount where accno in (select a.accno from bankaccount a,branch b 
+where a.branch_name=b.branch_name and b.branch_city='Bangalore');
+
+SELECT balance ,CONCAT(balance+balance*0.05) as 'balance' FROM bankaccount;
