@@ -107,3 +107,7 @@ WHERE e.emp_no NOT IN(SELECT i.emp_no FROM incentives i);
 SELECT DISTINCT e.e_name,e.emp_no,e.dept_no,a.job_role,d.d_loc,p.p_loc
 FROM employee e,dept d,assigned_to a,project p
 WHERE d.dept_no=e.dept_no AND e.emp_no=a.emp_no AND a.p_no=p.p_no AND p.p_loc=d.d_loc;
+
+select distinct e.e_name,d.dept_no,a.job_role from employee e, dept d, assigned_to a,incentives i
+where d.dept_no = e.dept_no and e.emp_no = a.emp_no and i.emp_no = a.emp_no and i.incentive_amount = 
+(select max(i.incentive_amount) from incentives i where i.incentive_date between '2021-1-1' and '2021-12-31' );
