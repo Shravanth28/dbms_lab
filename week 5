@@ -98,7 +98,7 @@ select * from assigned_to;
 
 SELECT DISTINCT e.emp_no,e.e_name
 FROM employee e,assigned_to a,project p
-WHERE e.emp_no=a.emp_no AND a.p_no=p.p_no AND p.p_loc IN("BENGALURU","HYDERABAD","MYSURU");
+WHERE e.emp_no=a.emp_no AND a.p_no=p.p_no AND p.p_loc IN("Bangalore","Bombay","Mysore");
 
 SELECT DISTINCT e.emp_no
 FROM employee e,incentives i
