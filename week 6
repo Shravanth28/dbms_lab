@@ -26,8 +26,8 @@ HAVING count(*) =
 select e_name from employee
 where emp_no = mgr_no and e_name != 'SUHAS'; 
 
-select emp_no from employee
-group by emp_no having avg(sal)>(select sal from employee where emp_no = mgr_no);
+select emp_no,max(incentive_amount) from incentives
+where incentive_amount <(select max(incentive_amount) from incentives);
 
 SELECT p.e_name FROM employee e,employee p WHERE e.emp_no=p.mgr_no AND p.dept_no=e.dept_no and p.emp_no!=e.emp_no;
 
