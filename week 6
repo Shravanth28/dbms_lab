@@ -1,0 +1,12 @@
+select e_name from employee
+where emp_no = mgr_no 
+and mgr_no > (select count(mgr_no) from employee);
+
+select e_name from employee
+where emp_no = mgr_no
+and sal > (select avg(sal) from employee);
+
+select emp_no,max(incentive_amount) from incentives
+where incentive_amount <(select max(incentive_amount) from incentives);
+
+SELECT p.e_name FROM employee e,employee p WHERE e.emp_no=p.mgr_no AND p.dept_no=e.dept_no;
