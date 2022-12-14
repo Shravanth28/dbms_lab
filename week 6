@@ -1,12 +1,35 @@
+SELECT m.e_name
+FROM employee m
+WHERE m.emp_no IN
+    (SELECT mgr_no
+     FROM employee)
+  AND m.sal >
+    (SELECT avg(e.sal)
+     FROM employee e
+     WHERE e.mgr_no = m.emp_no );
+     
+     
+
+SELECT m.e_name,
+       count(*)
+FROM employee w,
+     employee m
+WHERE w.mgr_no = m.emp_no
+GROUP BY m.e_name
+HAVING count(*) =
+  (SELECT MAX(mycount)
+   FROM
+     (SELECT COUNT(*) mycount
+      FROM employee
+      GROUP BY mgr_no) a);
+      
 select e_name from employee
-where emp_no = mgr_no 
-and mgr_no > (select count(mgr_no) from employee);
+where emp_no = mgr_no and e_name != 'SUHAS'; 
 
-select e_name from employee
-where emp_no = mgr_no
-and sal > (select avg(sal) from employee);
+select emp_no from employee
+group by emp_no having avg(sal)>(select sal from employee where emp_no = mgr_no);
 
-select emp_no,max(incentive_amount) from incentives
-where incentive_amount <(select max(incentive_amount) from incentives);
+SELECT p.e_name FROM employee e,employee p WHERE e.emp_no=p.mgr_no AND p.dept_no=e.dept_no and p.emp_no!=e.emp_no;
 
-SELECT p.e_name FROM employee e,employee p WHERE e.emp_no=p.mgr_no AND p.dept_no=e.dept_no;
+
+
